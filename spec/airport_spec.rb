@@ -19,4 +19,13 @@ describe Airport do
       expect(subject.hangar).not_to include plane
     end
   end
+
+  describe '#max_capacity' do
+    it "casd" do
+      subject = Airport.new
+      plane = 'SAD12l3'
+    5.times {subject.hangar << plane}
+     expect{subject.will_land(plane)}.to raise_error "theres no space"
+    end
+  end
 end
