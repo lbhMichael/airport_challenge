@@ -1,8 +1,22 @@
+require_relative '../lib/airport_challenge.rb'
+
 describe Airport do
   describe '#will_land' do
     it "puts a plane into the hangar" do
       subject = Airport.new
-      subject.will_land()
-      expect(subject.hangar).to include (plane)
+      plane = 'SAD12l3'
+      subject.will_land(plane)
+      expect(subject.hangar).to include plane
     end
+  end
+
+  describe '#take_off' do
+    it "removes a plane from the hangar" do
+      subject = Airport.new
+      plane = 'SAD12l3'
+      subject.will_land(plane)
+      subject.take_off(plane)
+      expect(subject.hangar).not_to include plane
+    end
+  end
 end
